@@ -17,7 +17,6 @@ Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'dhruvasagar/vim-table-mode'
-Plugin 'elixir-editors/vim-elixir' " pablo colorscheme for elixir
 Plugin 'mattn/emmet-vim'
 Plugin 'pangloss/vim-javascript'
 
@@ -48,6 +47,9 @@ let g:ctrlp_mruf_relative = 1
 
 " set no limit for files number to scan
 let g:ctrlp_max_files = 0
+
+" allow opening the same file in different buffers
+let g:ctrlp_switch_buffer = 1
 
 """""""""""""" table-mode """"""""""""""
 let g:table_mode_corner_corner='+'
@@ -122,6 +124,10 @@ highlight link myTodo Todo
 " create foldings and open them
 set foldmethod=syntax
 set foldlevel=999
+
+"""""""""""""" GOLANG """"""""""""""""""
+" don't highlight trailing space
+let g:go_highlight_trailing_whitespace_error=0
 
 """""""""""""" CUSTOM BINDINGS """""""""
 " `^ restores the cursor position so exiting insert does not move the cursor left.
