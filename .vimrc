@@ -17,6 +17,8 @@ Plugin 'gmarik/Vundle.vim'
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'dhruvasagar/vim-table-mode'
+Plugin 'dikiaap/minimalist'
+Plugin 'fatih/vim-go'
 Plugin 'mattn/emmet-vim'
 Plugin 'pangloss/vim-javascript'
 
@@ -54,6 +56,10 @@ let g:ctrlp_switch_buffer = 1
 """""""""""""" table-mode """"""""""""""
 let g:table_mode_corner_corner='+'
 let g:table_mode_header_fillchar='='
+
+"""""""""""""" vim-go """"""""""""""""""
+" auto imports
+let g:go_fmt_command = "goimports"
 
 """""""""""""" Emmet """""""""""""""""""
 " enable just for html
@@ -117,17 +123,20 @@ set smartcase
 augroup myTodo
   autocmd!
   autocmd Syntax * syntax match myTodo
-        \ /\v.<(TODO|FIXME|NOTE|HACK|OPTIMIZE):/hs=s+1 containedin=ALL
+        \ /\v.<(TODO|FIXME|NOTE):/hs=s+1 containedin=ALL
 augroup END
 highlight link myTodo Todo
 
-" create foldings and open them
-set foldmethod=syntax
-set foldlevel=999
+" don't show preview windiw when omnicomplete
+set completeopt-=preview
 
 """""""""""""" GOLANG """"""""""""""""""
 " don't highlight trailing space
 let g:go_highlight_trailing_whitespace_error=0
+
+"""""""""""""" SVELTE """"""""""""""""""
+" treat .svelte files as html
+autocmd BufRead,BufNewFile *.svelte setlocal filetype=html.javascript.css
 
 """""""""""""" CUSTOM BINDINGS """""""""
 " `^ restores the cursor position so exiting insert does not move the cursor left.
